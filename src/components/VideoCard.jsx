@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import {
   FaHeart,
   FaRegHeart,
@@ -26,7 +25,6 @@ const VideoCard = ({ video }) => {
   };
 
   return (
-    <LazyLoadComponent>
       <div className="video-card">
         <video src={video.videoUrl} controls className="video-player"></video>
         <div className="video-info">
@@ -47,7 +45,6 @@ const VideoCard = ({ video }) => {
           </div>
         </div>
       </div>
-    </LazyLoadComponent>
   );
 };
 

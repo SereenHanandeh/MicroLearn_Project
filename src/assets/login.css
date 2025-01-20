@@ -1,0 +1,119 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f7fc;
+  padding: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button.login-btn {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.login-btn:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.success {
+  color: #4caf50;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* link style */
+a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #d4edda; /* لون التنبيه للنجاح */
+  color: #155724; /* لون النص */
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  z-index: 1000;
+  overflow: hidden;
+  width: 300px; /* عرض التنبيه */
+}
+
+.alert.error {
+  background-color: #f8d7da; /* لون التنبيه للخطأ */
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.progress-bar {
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s linear;
+}
+
+/* شريط التقدم للخطأ */
+.alert.error .progress-bar {
+  background-color: #721c24; /* لون أحمر للخطأ */
+}
+
+/* شريط التقدم للنجاح */
+.alert.success .progress-bar {
+  background-color: #155724; /* لون أخضر للنجاح */
+}

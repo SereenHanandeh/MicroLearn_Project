@@ -3,15 +3,17 @@ import VideoCard from "../components/VideoCard";
 import data from "../assets/data.json";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState("");
+  const [query, setQuery] = useState(""); // الكلمة التي يتم البحث عنها
+  const [filter, setFilter] = useState(""); // الفئة المختارة
 
   // تصفية الفيديوهات حسب الكلمة الدلالية والفئة
-  const filteredVideos = data.filter(
-    (video) =>
-      video.title.toLowerCase().includes(query.toLowerCase()) &&
-      (filter === "" || video.category === filter)
-  );
+  const filteredVideos = data.filter((video) => {
+    const isTitleMatch = video.title
+      .toLowerCase()
+      .includes(query.toLowerCase());
+    const isCategoryMatch = filter ? video.category === filter : true; // إذا كانت الفئة فارغة، لا نفلتر حسب الفئة
+    return isTitleMatch && isCategoryMatch;
+  });
 
   return (
     <div className="search-page">
@@ -19,13 +21,13 @@ const Search = () => {
         type="text"
         placeholder="Search videos..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)} // تحديث الكلمة المدخلة
       />
 
       <div className="filters">
         <button
           onClick={() => setFilter("")}
-          className={!filter ? "active" : ""}
+          className={filter === "" ? "active" : ""}
         >
           All
         </button>

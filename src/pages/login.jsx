@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "../context/AlertContext.jsx"; // استيراد الـ hook
+import "../assets/login.css";
 
-const Login = () => {
-  const [email, setEmail] = useState(""); 
+const Login = ({ handleLogin }) => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { showAlert } = useAlert(); // استخدام الـ hook لعرض الـ alert
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // جلب بيانات المستخدم المخزنة في localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    // التحقق من صحة بيانات المستخدم
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-      setError(""); // مسح أي خطأ
-      alert("Logged in successfully!");
-      navigate("/home"); // التوجيه إلى الصفحة الرئيسية بعد تسجيل الدخول الناجح
+    if (
+      storedUser &&
+      storedUser.email === email &&
+      storedUser.password === password
+    ) {
+      showAlert("Logged in successfully!", "success"); // عرض الـ alert عند النجاح
+      handleLogin();
+      navigate("/home");
     } else {
-      setError("Invalid email or password");
+      showAlert("Invalid email or password", "error"); // عرض الـ alert عند الخطأ
     }
   };
 
@@ -45,7 +49,6 @@ const Login = () => {
             required
           />
         </div>
-        {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
       </form>
       <p>

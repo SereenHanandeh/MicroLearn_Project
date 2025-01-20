@@ -13,25 +13,54 @@
     "videoUrl": "https://www.w3schools.com/html/movie.mp4",
     "category": "Productivity"
   },
+
   {
     "id": "3",
-    "title": "The Future of Technology",
-    "description": "Explore the latest trends in the tech industry.",
-    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
-    "category": "Technology"
-  },
-  {
-    "id": "4",
-    "title": "Public Speaking Tips",
-    "description": "Overcome your fear of public speaking with these tips.",
-    "videoUrl": "https://www.w3schools.com/html/movie.mp4",
+    "title": "Effective Leadership Skills",
+    "description": "Learn how to become a better leader with these essential tips.",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "category": "Leadership"
   },
   {
+    "id": "4",
+    "title": "Time Management Tips",
+    "description": "Boost your productivity with these time management techniques.",
+    "videoUrl": "https://www.youtube.com/watch?v=3E7hkPZ-HTk",
+    "category": "Productivity"
+  },
+  {
     "id": "5",
-    "title": "Work-Life Balance Strategies",
-    "description": "Find out how to balance work and life effectively.",
-    "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "title": "Introduction to Programming",
+    "description": "A beginner-friendly guide to programming concepts.",
+    "videoUrl": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+    "category": "Technology"
+  },
+  {
+    "id": "6",
+    "title": "Public Speaking Mastery",
+    "description": "Improve your public speaking skills with these tips.",
+    "videoUrl": "https://www.youtube.com/watch?v=wpFknzPEK5Q",
+    "category": "Leadership"
+  },
+  {
+    "id": "7",
+    "title": "Excel for Beginners",
+    "description": "Learn how to use Excel efficiently, step by step.",
+    "videoUrl": "https://www.youtube.com/watch?v=0nbkaYsR94c",
+    "category": "Productivity"
+  },
+  {
+    "id": "8",
+    "title": "Cybersecurity Basics",
+    "description": "Understand the fundamentals of keeping your data secure.",
+    "videoUrl": "https://www.youtube.com/watch?v=yb-zwf5jwG4",
+    "category": "Technology"
+  },
+  {
+    "id": "9",
+    "title": "Mindfulness and Stress Management",
+    "description": "Discover how mindfulness can reduce stress and improve focus.",
+    "videoUrl": "https://www.youtube.com/watch?v=9VwmcIBdMSU",
     "category": "Productivity"
   }
 ]

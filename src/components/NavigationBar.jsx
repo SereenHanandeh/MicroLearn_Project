@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavigationBar = ({
   toggleDarkMode,
@@ -10,43 +10,72 @@ const NavigationBar = ({
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">
+        <NavLink to="/" className="navbar-brand">
           Microlearning App
-        </Link>
+        </NavLink>
         <div className="navbar-links">
-          {/* عرض روابط معينة بناءً على حالة تسجيل الدخول */}
           {!isLoggedIn ? (
             <>
-              <Link to="/" className="navbar-link">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Home
-              </Link>
-              <Link to="/login" className="navbar-link">
+              </NavLink>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Login
-              </Link>
-              <Link to="/register" className="navbar-link">
+              </NavLink>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Register
-              </Link>
+              </NavLink>
             </>
           ) : (
             <>
-              <Link to="/home" className="navbar-link">
+              <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Home
-              </Link>
-              <Link to="/search" className="navbar-link">
+              </NavLink>
+              <NavLink
+                to="/search"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Search
-              </Link>
-              <Link to="/profile" className="navbar-link">
+              </NavLink>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive ? "navbar-link active" : "navbar-link"
+                }
+              >
                 Profile
-              </Link>
+              </NavLink>
               <button onClick={handleLogout} className="navbar-link">
                 Logout
               </button>
             </>
           )}
-          {/* رابط لتبديل الوضع الداكن */}
-          <Link to="#" onClick={toggleDarkMode} className="dark-mode-link">
+          {/* زر تبديل الوضع الداكن */}
+          <button onClick={toggleDarkMode} className="dark-mode-button">
             {darkMode ? "🌙" : "🌞"}
-          </Link>
+          </button>
         </div>
       </div>
     </nav>
