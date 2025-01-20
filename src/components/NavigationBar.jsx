@@ -17,7 +17,7 @@ const NavigationBar = ({
           {/* عرض روابط معينة بناءً على حالة تسجيل الدخول */}
           {!isLoggedIn ? (
             <>
-              <Link to="/home" className="navbar-link">
+              <Link to="/" className="navbar-link">
                 Home
               </Link>
               <Link to="/login" className="navbar-link">
@@ -38,17 +38,13 @@ const NavigationBar = ({
               <Link to="/profile" className="navbar-link">
                 Profile
               </Link>
-              <button onClick={handleLogout} className="navbar-link logout-btn">
+              <button onClick={handleLogout} className="navbar-link">
                 Logout
               </button>
             </>
           )}
           {/* رابط لتبديل الوضع الداكن */}
-          <Link 
-            to="#"
-            onClick={toggleDarkMode}
-            className="dark-mode-link"
-          >
+          <Link to="#" onClick={toggleDarkMode} className="dark-mode-link">
             {darkMode ? "🌙" : "🌞"}
           </Link>
         </div>

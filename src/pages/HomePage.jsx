@@ -1,10 +1,8 @@
 import React from "react";
-import Navbar from "../components/navBar"; 
 
 const HomePage = () => {
   return (
     <div className="home-page">
-      <Navbar />
       <div className="intro-section">
         <h1>Welcome to the Microlearning App</h1>
         <p>

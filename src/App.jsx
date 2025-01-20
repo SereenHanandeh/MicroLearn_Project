@@ -37,8 +37,6 @@ const App = () => {
           isLoggedIn={isLoggedIn}
         />
 
-      
-
         {/* التنقل بين الصفحات */}
         <Routes>
           {/* الصفحة الرئيسية */}
