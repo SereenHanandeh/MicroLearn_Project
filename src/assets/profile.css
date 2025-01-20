@@ -1,0 +1,12 @@
+.profile-page .saved-video {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.profile-page .saved-video h4 {
+  margin: 0 0 8px;
+  color: #007bff;
+}

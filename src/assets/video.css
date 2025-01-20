@@ -1,0 +1,28 @@
+.video-actions button {
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.video-actions button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.video-actions button.liked {
+  background-color: #ff4081;
+}
+
+.video-actions button.saved {
+  background-color: #4caf50;
+}
+
+.video-actions button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
