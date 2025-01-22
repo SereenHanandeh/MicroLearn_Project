@@ -1,0 +1,101 @@
+/* تنسيق عام للصفحة */
+.search-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* تنسيق مربع البحث */
+  .search-page input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-page input:focus {
+    border-color: #00F1A1; /* TikTok-like green on focus */
+    outline: none;
+  }
+  
+  /* تنسيق أزرار الفلاتر */
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .filters button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .filters button:hover {
+    background-color: #00F1A1;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  /* تنسيق زر الفلتر النشط */
+  .filters button.active {
+    background-color: #00F1A1;
+    color: white;
+  }
+  
+  /* تنسيق فيديوهات البحث */
+  .video-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .video-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .video-card h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .video-card p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* تنسيق رسالة "لا توجد نتائج" */
+  .search-page p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  

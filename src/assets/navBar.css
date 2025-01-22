@@ -1,0 +1,91 @@
+/* Common styles for navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000; /* Default color for Dark Mode */
+  color: #ffffff; /* Default text color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode styles */
+.navbar.light {
+  background-color: #ffffff; /* Light background color */
+  color: #333333; /* Dark text color */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: inherit; /* Inherit color from the navbar (white in dark mode, black in light mode) */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit; /* Text color changes based on navbar mode */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Active links color */
+.navbar-link.active {
+  color: #00F1A1; /* Bright green like TikTok */
+}
+
+/* Hover effect for links */
+.navbar-link:hover {
+  color: #00F1A1; /* Hover color with bright green */
+}
+
+/* Dark Mode Button */
+.dark-mode-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit; /* Text color based on navbar mode */
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-button:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-link {
+    margin: 5px 0;
+  }
+}
+.navbar-logo {
+  width: 70px;  
+  height: auto; 
+  margin-right: 10px; 
+}

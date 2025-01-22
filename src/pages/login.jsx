@@ -28,30 +28,34 @@ const Login = ({ handleLogin }) => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
+    <div id="login-container">
+      <h2 id="login-title">Login</h2>
+      <form id="login-form" onSubmit={handleSubmit}>
+        <div id="email-container">
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password</label>
+        <div id="password-container">
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button id="login-button" type="submit">
+          Login
+        </button>
       </form>
-      <p>
+      <p id="register-link">
         Don't have an account? <a href="/register">Register here</a>
       </p>
     </div>

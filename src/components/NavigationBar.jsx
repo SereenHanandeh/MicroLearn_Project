@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import "../assets/navBar.css";
+import logo from "../assets/logo.png"; 
 
-const NavigationBar = ({
-  toggleDarkMode,
-  darkMode,
-  isLoggedIn,
-  handleLogout,
-}) => {
+const NavigationBar = ({ isLoggedIn, handleLogout }) => {
+  const storedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState(storedDarkMode);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+    document.body.style.backgroundColor = darkMode ? "#121212" : "#ffffff";
+    document.body.style.color = darkMode ? "#ffffff" : "#000000";
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
       <div className="navbar-container">
         <NavLink to="/" className="navbar-brand">
-          Microlearning App
+          <img src={logo} alt="App Logo" className="navbar-logo" />{" "}
         </NavLink>
         <div className="navbar-links">
           {!isLoggedIn ? (
@@ -72,7 +82,6 @@ const NavigationBar = ({
               </button>
             </>
           )}
-          {/* زر تبديل الوضع الداكن */}
           <button onClick={toggleDarkMode} className="dark-mode-button">
             {darkMode ? "🌙" : "🌞"}
           </button>

@@ -1,28 +1,156 @@
-.video-actions button {
+/* video.css */
+
+/* فيديو البطاقة */
+#video-card {
+  display: flex;
+  flex-direction: column; /* ترتيب الفيديوهات عموديًا */
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#video-card-wrapper {
+  display: flex;
+  flex-direction: column; /* ترتيب الفيديوهات عموديًا */
+  gap: 20px; /* المسافة بين الفيديوهات */
+  width: 100%;
+}
+
+#video-player {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#video-info {
+  padding: 15px;
+  width: 100%;
+}
+
+#video-info h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#video-info p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+#video-actions {
+  display: flex;
+  flex-direction: column; /* ترتيب الأزرار عموديًا */
+  align-items: center;  /* محاذاة الأزرار في المنتصف */
+  width: 100%;
+  gap: 15px;  /* مسافة بين الأزرار */
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* محاذاة الأيقونات والنصوص */
+  gap: 5px;
   padding: 10px;
-  margin-right: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: #f8f8f8;
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 80%; /* عرض الأزرار */
+  transition: background-color 0.3s ease;
 }
 
-.video-actions button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
+.action-button:hover {
+  background-color: #e0e0e0;
 }
 
-.video-actions button.liked {
-  background-color: #ff4081;
+.action-button svg {
+  font-size: 18px;
+  color: #666;
 }
 
-.video-actions button.saved {
-  background-color: #4caf50;
+.action-button.liked svg,
+.action-button.saved svg {
+  color: #ff1744;
 }
 
-.video-actions button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.action-button.liked:hover,
+.action-button.saved:hover {
+  background-color: #ffe5e9;
+}
+
+#video-actions .action-button:last-child svg {
+  color: #3b5998;
+}
+
+#video-actions .action-button:last-child:hover {
+  background-color: #dfe3ee;
+}
+
+/* Media Queries */
+
+/* شاشات أصغر من 600px (أجهزة الجوال الصغيرة) */
+@media (max-width: 600px) {
+  #video-card {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  #video-player {
+    max-height: 250px;
+  }
+
+  .action-button {
+    width: 90%; /* عرض الأزرار أكبر على الشاشات الصغيرة */
+  }
+
+  #video-info h3 {
+    font-size: 16px; /* تقليل حجم الخط على الشاشات الصغيرة */
+  }
+
+  #video-info p {
+    font-size: 12px; /* تقليل حجم الخط على الشاشات الصغيرة */
+  }
+}
+
+/* شاشات من 600px إلى 900px (الأجهزة اللوحية) */
+@media (max-width: 900px) and (min-width: 601px) {
+  #video-card {
+    max-width: 100%;
+    margin: 15px;
+  }
+
+  #video-player {
+    max-height: 280px;
+  }
+
+  .action-button {
+    width: 85%; /* عرض الأزرار مناسب للأجهزة اللوحية */
+  }
+
+  #video-info h3 {
+    font-size: 17px;
+  }
+
+  #video-info p {
+    font-size: 13px;
+  }
+}
+
+/* شاشات أكبر من 900px (الأجهزة الكبيرة والمكتبية) */
+@media (min-width: 901px) {
+  #video-card {
+    max-width: 500px;
+  }
+
+  .action-button {
+    width: 80%; /* الأزرار تأخذ عرض مناسب للأجهزة الكبيرة */
+  }
 }

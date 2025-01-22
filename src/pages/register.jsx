@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../assets/register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -25,49 +26,53 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
+    <div id="register-container">
+      <h2 id="register-title">Register</h2>
+      <form onSubmit={handleSubmit} id="register-form">
+        <div id="username-container">
+          <label htmlFor="username">Username</label>
           <input
+            id="username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Email</label>
+        <div id="email-container">
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password</label>
+        <div id="password-container">
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Confirm Password</label>
+        <div id="confirm-password-container">
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
+            id="confirmPassword"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </div>
-        {error && <p className="error">{error}</p>}
-        <button type="submit">Register</button>
+        {error && <p id="error-message">{error}</p>}
+        <button id="register-button" type="submit">Register</button>
       </form>
-      <p>
+      <p id="login-link">
         Already have an account? <a href="/login">Login here</a>
       </p>
     </div>
