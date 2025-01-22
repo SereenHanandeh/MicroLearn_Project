@@ -12,7 +12,9 @@ const Login = ({ handleLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // التحقق من وجود المستخدم في localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
+    console.log("Stored User:", storedUser); // سجل المستخدم في الكونسول
 
     if (
       storedUser &&

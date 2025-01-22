@@ -14,35 +14,53 @@ const VideoCard = ({ video, currentUser }) => {
   const [saved, setSaved] = useState(false);
   const [likedUsers, setLikedUsers] = useState([]);
 
+  // استرجاع البيانات من localStorage عند التحميل
   useEffect(() => {
     const storedLikes =
       JSON.parse(localStorage.getItem(`likes-${video.id}`)) || [];
     setLikesCount(storedLikes.length);
     setLikedUsers(storedLikes);
 
+    // إذا كان المستخدم قد قام بعمل لايك من قبل، يتم تعيين الحالة على "مُعجب"
     const hasLiked = storedLikes.some((user) => user === currentUser);
     setLiked(hasLiked);
+
+    // استرجاع حالة الحفظ من localStorage
+    const storedSaved = JSON.parse(localStorage.getItem(`saved-${video.id}`));
+    setSaved(!!storedSaved);
   }, [video.id, currentUser]);
 
+  // التعامل مع حدث الضغط على زر اللايك
   const handleLike = () => {
     let updatedLikes;
+
     if (liked) {
+      // إزالة اللايك إذا كان المستخدم قد قام بعمل لايك مسبقاً
       updatedLikes = likedUsers.filter((user) => user !== currentUser);
+      setLiked(false);
     } else {
+      // إضافة لايك للمستخدم الحالي
       updatedLikes = [...likedUsers, currentUser];
+      setLiked(true);
     }
 
-    setLiked(!liked);
     setLikesCount(updatedLikes.length);
     setLikedUsers(updatedLikes);
 
+    // تخزين البيانات في localStorage
     localStorage.setItem(`likes-${video.id}`, JSON.stringify(updatedLikes));
   };
 
+  // التعامل مع حدث الضغط على زر الحفظ
   const handleSave = () => {
-    setSaved(!saved);
+    const newSavedState = !saved;
+    setSaved(newSavedState);
+
+    // تخزين حالة الحفظ في localStorage
+    localStorage.setItem(`saved-${video.id}`, JSON.stringify(newSavedState));
   };
 
+  // التعامل مع حدث الضغط على زر المشاركة
   const handleShare = () => {
     alert(`Video shared: ${video.title}`);
   };
@@ -57,7 +75,11 @@ const VideoCard = ({ video, currentUser }) => {
           <button
             onClick={handleLike}
             className={`action-button ${liked ? "liked" : ""}`}
-            title={`Liked by: ${likedUsers.join(", ")}`}
+            title={
+              likedUsers.length > 0
+                ? `Liked by: ${likedUsers.join(", ")}`
+                : "No likes yet"
+            }
           >
             {liked ? <FaHeart /> : <FaRegHeart />} {likesCount} Like
           </button>
@@ -78,4 +100,4 @@ const VideoCard = ({ video, currentUser }) => {
   );
 };
 
-export default VideoCard;  
+export default VideoCard;

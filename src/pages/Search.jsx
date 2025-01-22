@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import VideoCard from "../components/VideoCard";
 import data from "../assets/data.json";
+import "../assets/search.css";
 
 const Search = () => {
   const [query, setQuery] = useState(""); // الكلمة التي يتم البحث عنها

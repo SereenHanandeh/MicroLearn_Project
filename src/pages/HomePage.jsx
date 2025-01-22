@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/homePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate(); // استخدام useNavigate
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // التحقق من وجود المستخدم في localStorage عند تحميل الصفحة
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setIsLoggedIn(true); // إذا كان المستخدم مسجلاً دخوله
+    }
+  }, []);
 
   // دالة لتوجيه المستخدم إلى صفحة التسجيل
   const handleSignUp = () => {
@@ -13,6 +22,11 @@ const HomePage = () => {
   // دالة لتوجيه المستخدم إلى صفحة تسجيل الدخول
   const handleLogin = () => {
     navigate("/login");
+  };
+
+  // دالة لتوجيه المستخدم إلى الصفحة الرئيسية
+  const handleGoHome = () => {
+    navigate("/home");
   };
 
   return (
@@ -25,14 +39,26 @@ const HomePage = () => {
           leadership skills, productivity, or tech knowledge, we've got you
           covered!
         </p>
-        <p>Sign up or log in to get started and start watching videos today!</p>
+        <p>
+          {isLoggedIn
+            ? "You're logged in! Start exploring and watching videos today."
+            : "Sign up or log in to get started and start watching videos today!"}
+        </p>
         <div id="buttons-section">
-          <button id="btn-primary" onClick={handleSignUp}>
-            Sign Up
-          </button>
-          <button id="btn-secondary" onClick={handleLogin}>
-            Log In
-          </button>
+          {!isLoggedIn ? (
+            <>
+              <button id="btn-primary" onClick={handleSignUp}>
+                Sign Up
+              </button>
+              <button id="btn-secondary" onClick={handleLogin}>
+                Log In
+              </button>
+            </>
+          ) : (
+            <button id="btn-primary" onClick={handleGoHome}>
+              Go to Dashboard
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,26 +1,25 @@
-home.css
-
 /* تعيين عرض الصفحة بالكامل مع خلفية داكنة */
 .home-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #0c0c0c; /* خلفية داكنة */
+  background-color: #ffffff; 
   color: white;
   overflow: hidden; /* منع التمرير الأفقى */
-  height: 100vh; /* ملء الشاشة بالكامل */
+  height: auto; /* تعديل هنا لتناسب المحتوى */
+  padding-top: 80px; /* إضافة مسافة أعلى لتفادي التغطية من الـ Navbar */
+  box-sizing: border-box; /* التأكد من احتساب padding في الحجم الكلي */
 }
 
-/* تصميم بطاقة الفيديو */
 .video-card {
   width: 100%;
-  height: 100vh; /* ملء الشاشة بالكامل */
+  height: auto; /* تعديل هنا ليتناسب مع حجم الفيديو */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #000; /* خلفية سوداء للفيديو */
+  background-color: #ffffff; /* خلفية سوداء للفيديو */
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -101,7 +100,11 @@ home.css
 
 /* عند التمرير عبر الأجهزة الصغيرة */
 @media (max-width: 768px) {
+  .home-page {
+    padding-top: 60px; /* تقليل المسافة العلوية في الأجهزة الصغيرة */
+  }
+
   .video-card {
-    height: 80vh;
+    height: auto; 
   }
 }

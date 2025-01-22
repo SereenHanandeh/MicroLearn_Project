@@ -65,6 +65,8 @@
   cursor: pointer;
   width: 80%; /* عرض الأزرار */
   transition: background-color 0.3s ease;
+  position: relative;
+
 }
 
 .action-button:hover {
@@ -84,6 +86,20 @@
 .action-button.liked:hover,
 .action-button.saved:hover {
   background-color: #ffe5e9;
+}
+
+.action-button[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 #video-actions .action-button:last-child svg {

@@ -3,26 +3,48 @@ import "../assets/register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState(""); // حقل البريد الإلكتروني
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(""); // رسالة النجاح
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // التحقق من مطابقة كلمتي المرور
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      setSuccess(""); // مسح رسالة النجاح
       return;
     }
 
-    // تخزين بيانات المستخدم في localStorage
-    const user = { username, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
+    // التحقق من صحة البريد الإلكتروني
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address.");
+      setSuccess(""); // مسح رسالة النجاح
+      return;
+    }
 
-    alert("Registration successful!");
-    // توجيه المستخدم إلى صفحة تسجيل الدخول بعد التسجيل الناجح
-    window.location.href = "/login";
+    // التحقق من قوة كلمة المرور
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      setSuccess(""); // مسح رسالة النجاح
+      return;
+    }
+
+    // تخزين بيانات المستخدم الجديد في localStorage تحت المفتاح "user"
+    const newUser = { username, email, password };
+    localStorage.setItem("user", JSON.stringify(newUser));
+
+    setError(""); // مسح رسالة الخطأ
+    setSuccess("Registration successful! Redirecting to login...");
+
+    // تأخير التنقل إلى صفحة تسجيل الدخول
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
   };
 
   return (
@@ -69,9 +91,24 @@ const Register = () => {
             required
           />
         </div>
-        {error && <p id="error-message">{error}</p>}
-        <button id="register-button" type="submit">Register</button>
+
+        {error && (
+          <p id="error-message" className="error-message">
+            {error}
+          </p>
+        )}
+
+        {success && (
+          <p id="success-message" className="success-message">
+            {success}
+          </p>
+        )}
+
+        <button id="register-button" type="submit">
+          Register
+        </button>
       </form>
+
       <p id="login-link">
         Already have an account? <a href="/login">Login here</a>
       </p>

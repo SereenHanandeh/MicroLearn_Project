@@ -6,6 +6,7 @@
     padding: 20px;
     background-color: #f4f4f4;
     font-family: 'Poppins', sans-serif;
+    margin-top: 80px; /* مسافة أعلى لتجنب التغطية من الـ Navbar */
   }
   
   /* تنسيق مربع البحث */
