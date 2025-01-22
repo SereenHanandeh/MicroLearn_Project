@@ -14,8 +14,8 @@ const Register = () => {
 
     // التحقق من مطابقة كلمتي المرور
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      setSuccess(""); // مسح رسالة النجاح
+      setError("Passwords do not match.");
+      setSuccess("");
       return;
     }
 
@@ -23,25 +23,25 @@ const Register = () => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
       setError("Please enter a valid email address.");
-      setSuccess(""); // مسح رسالة النجاح
+      setSuccess("");
       return;
     }
 
     // التحقق من قوة كلمة المرور
     if (password.length < 6) {
       setError("Password must be at least 6 characters long.");
-      setSuccess(""); // مسح رسالة النجاح
+      setSuccess("");
       return;
     }
 
-    // تخزين بيانات المستخدم الجديد في localStorage تحت المفتاح "user"
+    // تخزين بيانات المستخدم الجديد في localStorage
     const newUser = { username, email, password };
     localStorage.setItem("user", JSON.stringify(newUser));
 
-    setError(""); // مسح رسالة الخطأ
+    setError("");
     setSuccess("Registration successful! Redirecting to login...");
 
-    // تأخير التنقل إلى صفحة تسجيل الدخول
+    // التنقل إلى صفحة تسجيل الدخول بعد 2 ثانية
     setTimeout(() => {
       window.location.href = "/login";
     }, 2000);
@@ -93,15 +93,15 @@ const Register = () => {
         </div>
 
         {error && (
-          <p id="error-message" className="error-message">
+          <div id="error-message" className="error-message">
             {error}
-          </p>
+          </div>
         )}
 
         {success && (
-          <p id="success-message" className="success-message">
+          <div id="success-message" className="success-message">
             {success}
-          </p>
+          </div>
         )}
 
         <button id="register-button" type="submit">

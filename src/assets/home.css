@@ -4,7 +4,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ffffff; 
+  background-image: url("../assets/bg.png"); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   color: white;
   overflow: hidden; /* منع التمرير الأفقى */
   height: auto; /* تعديل هنا لتناسب المحتوى */

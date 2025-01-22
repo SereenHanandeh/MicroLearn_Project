@@ -1,4 +1,12 @@
 /* Profile Page Styles */
+body
+{
+  background-image: url("../assets/bg.png"); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 1000px;
+}
 .profile-page {
   margin-top: 80px; /* المسافة بين الـ Navbar والصفحة */
   display: flex;
